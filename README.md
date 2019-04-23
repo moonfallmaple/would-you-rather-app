@@ -1,5 +1,12 @@
 # Project：Would You Rather
 
+Would you rather is a ReactJS app that allows a user to login, ask and answer different poll questions. It will also show a leaderboard based on the number of questions each user has asked and answered.
+
+The primary purpose for developing Would You Rather was to gain exposure to React Router & Redux, thus core functionality such as user authentication and the project backend is mocked.
+
+[Would You Rather Demo](https://moonfallmaple.github.io/would-you-rather/)
+
+
 <div  align="center">
 Login
 <img src="./login.png" width = "900" height = "350" alt="图片名称" align=center /></b>
@@ -7,15 +14,6 @@ Login
 HomePage
 <img src="./home.png" width = "1000" height = "600" alt="图片名称" align=center />
 </div>
-
-
-
-Would you rather is a ReactJS app that allows a user to login, ask and answer different poll questions. It will also show a leaderboard based on the number of questions each user has asked and answered.
-
-The primary purpose for developing Would You Rather was to gain exposure to React Router & Redux, thus core functionality such as user authentication and the project backend is mocked.
-
-[Would You Rather Demo](https://moonfallmaple.github.io/would-you-rather/)
-
 
 
 ## Steps to Install
