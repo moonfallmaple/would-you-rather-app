@@ -2,31 +2,24 @@
 
 ## Project Description
 
+Would you rather is a ReactJS app that allows a user to login, ask and answer different poll questions. It will also show a leaderboard based on the number of questions each user has asked and answered.
+
+The primary purpose for developing Would You Rather was to gain exposure to React Router & Redux, thus core functionality such as user authentication and the project backend is mocked.
+
+[Would You Rather Demo](https://moonfallmaple.github.io/would-you-rather/)
 
 
 
-
-
-
-## Available Scripts
-
-In the project directory, you can run:
-
-
-
-
-## Run the Application
+## Steps to Install
 In order to run the application you can:
 
-Clone or fork this project:
+### 
+### Clone or fork this project:
 
-$ git clone 
-
-In the project directory, you can run:
-
+$ git clone https://github.com/moonfallmaple/would-you-rather-app.git
 
 
-### `npm start`
+### npm start
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
