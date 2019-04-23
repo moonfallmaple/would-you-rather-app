@@ -16,7 +16,7 @@ class UnanswerQuestionLists extends Component {
          { (Object.values(questions)).map((question)=>(                       
               <Card title={`AskBy: ${question.author}`} bordered={false}  >
                   <ol className='Questions-list'>
-                  <li className='Questions-list-item'>
+                  <li className='Questions-list-item' key={question.id}>
                       <div className='Questions-avatar'>
                       <Avatar shape="circle" size={50} src={users[question.author].avatarURL}/>
                       </div>   

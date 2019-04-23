@@ -42,7 +42,7 @@ class SubmitAnswer extends Component{
           answer:this.state.selection
         })
       }
-      // this.props.history.push("/") 
+     
     } 
 
       render(){
@@ -54,7 +54,7 @@ class SubmitAnswer extends Component{
         return(
           <Card title={`AskBy: ${question.author}`} bordered={false}  >
             <ol className='Questions-Result'>
-              <li className='Questions-Result-item'>
+              <li className='Questions-Result-item' key={question.id}>
                 <div className='Questions-Result-avatar'>
                 <Avatar shape="circle" size={66} src={users[question.author].avatarURL}/>
                 </div>
