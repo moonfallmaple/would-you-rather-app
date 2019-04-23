@@ -9,9 +9,8 @@ import Nav from './Nav'
 // Import UI
 import '../index.css';
 import 'antd/dist/antd.css';
-import { Layout,Tabs } from 'antd';
+import { Tabs } from 'antd';
 
-const { Header, Content, Footer} = Layout;
 const TabPane = Tabs.TabPane;
 
 
@@ -33,12 +32,6 @@ class Home extends Component {
 
         return (
           <div>
-              <Layout> 
-              <Header style={{ background: 'dark', padding: 0 }}>
-                  <Nav />
-              </Header><br/>
-            
-                <Content style={{ display: 'flex', justifyContent: 'center', minHeight: "100vh" }}>
                   <Tabs defaultActiveKey="1"   style={{ marginLeft:'25%', width: '70%', minHeight: "100vh"  }} >
                     <TabPane tab="Unanswered" key="1">      
                       <div style={{ width: '70%'}}>
@@ -59,13 +52,6 @@ class Home extends Component {
                       </div>    
                     </TabPane>
                   </Tabs>               
-                </Content>
-          
-                <Footer style={{ textAlign: 'center' }}>
-                    Created by SunriseJade
-                </Footer>
-
-            </Layout>
           </div>
         );
       }

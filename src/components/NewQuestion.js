@@ -54,11 +54,6 @@ class NewQuestion extends Component {
   render() {
       
       return (
-            <Layout>
-              <Header style={{ background: 'dark', padding: 0 }}>
-                  <Nav />
-              </Header><br/>
-                  <Content style={{ margin: '10px 16px 16px', minHeight: "100vh" }}>
                     <Card title="Create New Questions" bordered={false} style={{ width: "500px", margin:'auto' }}>
                       <div style={{display: 'flex', justifyContent: 'center' }}>
                         <Form style={{ padding: 10, background: '#fff', width:'400px'} } onSubmit={this.handelSubmit} >
@@ -75,13 +70,7 @@ class NewQuestion extends Component {
                         </Form>      
                       </div>             
                   </Card>
-                </Content>
-              <Footer style={{ textAlign: 'center' }}>
-                      Created by SunriseJade
-              </Footer>
-            </Layout>
- 
-
+      
       );
   }
 }

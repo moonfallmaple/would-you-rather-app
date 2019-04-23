@@ -17,7 +17,9 @@ import QuestionContainer from './QuestionContainer';
 // Import DATA
 import { _getUsers,_getQuestions } from '../utils/_DATA'
 
-
+import 'antd/dist/antd.css';
+import { Layout} from 'antd';
+const { Header, Content, Footer} = Layout;
 
 
 class App extends Component{
@@ -52,9 +54,20 @@ class App extends Component{
 
     render(){    
         return( 
-          (!this.props.authed)?
-          this.guestRouters():
-          this.authoredRouters()    
+          <Layout>
+          <Header style={{ background: 'dark', padding: 0 }}>
+              <Nav />
+          </Header><br/>
+            <Content style={{ margin: '10px 16px 16px', minHeight: "100vh" }}>
+              { (this.props.authed)?
+                  this.authoredRouters():
+                    <Login/>}       
+            </Content>
+          <Footer style={{ textAlign: 'center' }}>
+                  Created by SunriseJade
+          </Footer>
+        </Layout>
+             
         )
     }
 }
@@ -63,7 +76,6 @@ App.propTypes = {
   getAllUsers: PropTypes.func.isRequired
     
   }
-
 
 
 const mapStateToProps = (state) => {

@@ -6,7 +6,6 @@ import CheckResult from './CheckResult';
 
 import { Layout } from 'antd'
 
-const { Header, Content, Footer} = Layout;
 
 
 
@@ -60,24 +59,14 @@ class QuestionContainer extends Component{
           
 
         return (
-          <div>
-              <Layout>
-                    <Header style={{ background: 'dark', padding: 0 }}>
-                        <Nav />
-                    </Header><br/>
-                    <Content style={{ display: 'flex', justifyContent: 'center', minHeight: "100vh" }}>
-                      <div style={{ width: '50%'}}>
+    
+                      <div style={{ width: '50%',margin:'auto'}}>
                             {optionOneVotes.includes(`${authed}`) || optionTwoVotes.includes(`${authed}`) ? 
                                 CkeckResult(): 
                                 AnswerQuestion()
                             } 
                       </div> 
-                    </Content>
-                    <Footer style={{ textAlign: 'center' }}>
-                        Created by SunriseJade
-                    </Footer>
-              </Layout>
-          </div>
+
         )
       }
         

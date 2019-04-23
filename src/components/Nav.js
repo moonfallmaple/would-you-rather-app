@@ -9,7 +9,7 @@ import 'antd/dist/antd.css';
 import { Avatar } from 'antd';
 import { Menu,Icon } from 'antd';
 
-
+import {Button, Row, Col } from "antd";
 
 
 class Nav extends Component {
@@ -24,6 +24,7 @@ class Nav extends Component {
              <Menu
                 theme="dark"
                 mode="horizontal"
+                defaultSelectedKeys={['2']}
                 style={{ lineHeight: '75px',width:'100%',display:'flex',justifyContent:'center'}}
             >
                  <Menu.Item key="1" >
@@ -55,21 +56,21 @@ class Nav extends Component {
                     <span className="nav-text">Leaderboard</span>  
                     </Link>
                 </Menu.Item>
-          
-        
-                
-                <Menu.Item key="5" >
-                    <span className="nav-text">Hello，{this.props.authed}</span>  
-                    <Avatar size={20}  src={users[authed].avatarURL} style={{margin:'10px'}}/>
-                </Menu.Item>
-                
-                <Menu.Item key="6" >
+                 
+                {(this.props.authed)?
+                        <Menu.Item key="5" >
+                            <span className="nav-text">Hello，{this.props.authed}</span>  
+                            <Avatar size={20}  src={users[authed].avatarURL} style={{margin:'10px'}}/>  
+                        </Menu.Item>
+                        : null
+                }
+                  {(this.props.authed)?
+                    <Menu.Item key="6" >
                         <Link exact to='/' onClick={this.handelLogout.bind(this)}> <Icon type="logout" />
                         <span className="nav-text">Logout</span>
-                    </Link>
-                    
-                </Menu.Item>
-            
+                        </Link>     
+                    </Menu.Item>:null}
+
             </Menu>  
         </div>
       );
@@ -98,3 +99,5 @@ const mapDispatchToProps = (dispatch) => {
       }
 
 export default Nav=connect(mapStateToProps,mapDispatchToProps)(Nav)
+     
+
