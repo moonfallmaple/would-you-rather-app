@@ -1,5 +1,4 @@
-import React,{Component} from 'react';
-import PropTypes from "prop-types";
+import React from 'react';
 import { Link } from "react-router-dom";
 
 // Import UI
@@ -7,14 +6,13 @@ import 'antd/dist/antd.css';
 import { Button,Card,Avatar } from 'antd';
 
 
-class UnanswerQuestionLists extends Component {
+const UnanswerQuestionLists =(props)=> {
 
-  render() {
-      const {questions,users}=this.props
+      const {questions,users}=props
         return(   
         <div>
          { (Object.values(questions)).map((question)=>(                       
-              <Card title={`AskBy: ${question.author}`} bordered={false}  >
+              <Card title={`AskBy: ${question.author}`} bordered={false}  key={question.id}  >
                   <ol className='Questions-list'>
                   <li className='Questions-list-item' key={question.id}>
                       <div className='Questions-avatar'>
@@ -33,7 +31,7 @@ class UnanswerQuestionLists extends Component {
             }
         </div>)
 
-  }
+  
 }
 
 

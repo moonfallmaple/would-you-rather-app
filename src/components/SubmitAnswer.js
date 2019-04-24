@@ -46,17 +46,15 @@ class SubmitAnswer extends Component{
     } 
 
       render(){
-        const { question,
-                users,
-                authed}=this.props
+        const { question, users, author,qid}=this.props
 
         const { disabled } = this.state
         return(
-          <Card title={`AskBy: ${question.author}`} bordered={false}  >
+          <Card title={`AskBy: ${author.name}`} bordered={false}  >
             <ol className='Questions-Result'>
-              <li className='Questions-Result-item' key={question.id}>
+              <li className='Questions-Result-item' key={qid}>
                 <div className='Questions-Result-avatar'>
-                <Avatar shape="circle" size={66} src={users[question.author].avatarURL}/>
+                <Avatar shape="circle" size={66} src={author.avatarURL}/>
                 </div>
                 <div>
                   <p> Would You Rather: </p>
@@ -65,7 +63,7 @@ class SubmitAnswer extends Component{
                       <div className='radioStyle'>  <Radio  value='optionOne' onChange={this.handelChange.bind(this)} checked={this.state.selection==='optionOne'} >{question.optionOne.text}</Radio></div><br/>               
                       <div className='radioStyle'>  <Radio  value='optionTwo' onChange={this.handelChange.bind(this)} checked={this.state.selection==='optionTwo'} >{question.optionTwo.text}</Radio></div>         
                     </RadioGroup>
-                    <button disabled={disabled} type="submit" style={{margin:'40px'}}>Submit</button>
+                    <Button disabled={disabled} type="primary" htmlType="submit" style={{margin:'40px'}}>Submit</Button>
                   </Form>
                 </div>
               </li>
@@ -75,6 +73,12 @@ class SubmitAnswer extends Component{
       }
                     
 }
+
+
+
+
+
+
 
 
 const mapDispatchToProps = (dispatch) => {

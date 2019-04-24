@@ -12,6 +12,7 @@ import Login from './Login';
 import NewQuestion from './NewQuestion';
 import Leaderboard from './Leaderboard';
 import QuestionContainer from './QuestionContainer';
+import NotFound from "./NotFound";
 
 
 // Import DATA
@@ -42,12 +43,13 @@ class App extends Component{
       <Switch>
           <Route exact path='/' component={Home}
             /> 
-          <Route exact path='/add' component={NewQuestion}
+          <Route path='/add' component={NewQuestion}
             />
-          <Route exact path='/leaderboard' component={Leaderboard}
+          <Route path='/leaderboard' component={Leaderboard}
             />
-          <Route exact path='/questions/:questionId' component={QuestionContainer}
+          <Route path='/questions/:questionId' component={QuestionContainer}
             />
+          <Route component={NotFound} />
       </Switch>
     )
 

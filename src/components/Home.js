@@ -1,10 +1,8 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import AnswerQuestionLists from './AnswerQuestionLists.js';
 import UnanswerQuestionLists from './UnanswerQuestionLists.js';
-import Nav from './Nav'
+
 
 // Import UI
 import '../index.css';
@@ -37,18 +35,15 @@ class Home extends Component {
                       <div style={{ width: '70%'}}>
                         <UnanswerQuestionLists 
                           questions={orderUnanswered}
-                          users={users}
-                        
-                        />
+                          users={users} />
                       </div> 
                     </TabPane>
+                    
                     <TabPane tab="Answered" key="2">
                       <div style={{ background: '#ECECEC' , width: '70%'}}>
                         <AnswerQuestionLists 
                             questions={orderAnswered}
-                            users={users}
-                          
-                        /> 
+                            users={users} /> 
                       </div>    
                     </TabPane>
                   </Tabs>               

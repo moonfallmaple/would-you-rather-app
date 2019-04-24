@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import Nav from './Nav';
 import SubmitAnswer from './SubmitAnswer';
 import CheckResult from './CheckResult';
-
-import { Layout } from 'antd'
+import {Link} from 'react-router-dom';
+import NotFound from './NotFound';
 
 
 
@@ -15,57 +15,64 @@ import { Layout } from 'antd'
 
 /** Container component for answering questions or displaying results */
 
-class QuestionContainer extends Component{
-
+class QuestionContainer extends Component{   
 
       render() {
-        const {users,authed,questions}=this.props
-        const qid =this.props.match.params.questionId
-        const viewQuestion=Object.values(questions).filter((q)=>(q.id===qid))
-        const optionOneVotes= viewQuestion[0].optionOne.votes
-        const optionTwoVotes= viewQuestion[0].optionTwo.votes
-        const totalVotes=optionOneVotes.length+optionTwoVotes.length
-        const optionOnePrecentage=optionOneVotes.length ? Math.round(optionOneVotes.length/totalVotes*100) : 0
-        const optionTwoPrecentage=optionTwoVotes.length ? Math.round(optionTwoVotes.length/totalVotes*100) : 0
-        
-        console.log(this.props.match.params.questionId)
-        console.log(viewQuestion)
+        const {
+          users,authed,
+          question,qid,author,
+          voteOptionOne,voteOptionTwo,
+          optionOneVotesLength,optionTwoVotesLength,totalVotes,
+          optionOnePrecentage,optionTwoPrecentage, questionDoesNotExist}=this.props
+  
 
         const AnswerQuestion=()=>(
-                viewQuestion.map((question)=>(
                         <SubmitAnswer 
                           question={question}
                           users={users}
                           authed={authed}
                           qid={qid}
-                        />))
+                          author={author}
+                        />
         )
         
       
-        const CkeckResult=()=>(
-                viewQuestion.map((question)=>(                       
+        const CkeckResult=()=>(                           
                         <CheckResult 
-                          question={question}
-                          users={users}
-                          authed={authed}
-                          optionOneVotes={optionOneVotes}
-                          optionTwoVotes={optionTwoVotes}
-                          totalVotes={totalVotes}
-                          optionOnePrecentage={optionOnePrecentage}
-                          optionTwoPrecentage= {optionTwoPrecentage}
-                        /> ))
+                        qid={qid}
+                        question={question}
+                        author={author}
+                        voteOptionOne={voteOptionOne}
+                        voteOptionTwo={voteOptionTwo}
+                        optionOneVotesLength={optionOneVotesLength}
+                        optionTwoVotesLength={optionTwoVotesLength}
+                        totalVotes={totalVotes}
+                        optionOnePrecentage={optionOnePrecentage}
+                        optionTwoPrecentage= {optionTwoPrecentage}  
+                      /> 
         )
+
+
+        const renderQuestionNotFound = () => (
+          <div className="center">
+              <NotFound/>
+          </div>
+        );
+
+        const optionToDisplay = () => (
+          voteOptionOne|| voteOptionTwo ? 
+              CkeckResult(): 
+              AnswerQuestion()
+        
+        );
 
           
 
         return (
     
-                      <div style={{ width: '50%',margin:'auto'}}>
-                            {optionOneVotes.includes(`${authed}`) || optionTwoVotes.includes(`${authed}`) ? 
-                                CkeckResult(): 
-                                AnswerQuestion()
-                            } 
-                      </div> 
+                <div style={{ width: '50%',margin:'auto'}}>
+                      { questionDoesNotExist ?  renderQuestionNotFound() : optionToDisplay() } 
+                </div> 
 
         )
       }
@@ -73,11 +80,35 @@ class QuestionContainer extends Component{
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-    users:state.users,
-    authed:state.authed,
-    questions:state.questions
+const mapStateToProps = (state,ownProps) => {
+  const qid = ownProps.match.params.questionId
+  const question = state.questions[qid]
+  console.log(question)
+  if(!question)
+    return { questionDoesNotExist: true }
+  if (question){
+        const author = state.users[question.author]
+        const voteOptionOne= question.optionOne.votes.includes(state.authed)
+        const voteOptionTwo= question.optionTwo.votes.includes(state.authed)
+        const optionOneVotesLength = question.optionOne.votes.length
+        const optionTwoVotesLength = question.optionTwo.votes.length
+        const totalVotes = optionOneVotesLength + optionTwoVotesLength
+        const optionOnePrecentage = Math.round(optionOneVotesLength/totalVotes*100)
+        const optionTwoPrecentage = Math.round(optionTwoVotesLength/totalVotes*100)   
+    return {
+      author,
+      voteOptionOne,
+      voteOptionTwo,
+      optionOneVotesLength,
+      optionTwoVotesLength,
+      totalVotes,
+      optionOnePrecentage,
+      optionTwoPrecentage,
+      question,
+      qid,
+      users:state.users,
+      authed:state.authed
+    }
   }
 }
 

@@ -9,7 +9,6 @@ import 'antd/dist/antd.css';
 import { Avatar } from 'antd';
 import { Menu,Icon } from 'antd';
 
-import {Button, Row, Col } from "antd";
 
 
 class Nav extends Component {
@@ -18,6 +17,8 @@ class Nav extends Component {
       }
     render() {
       const {users,authed}=this.props
+      
+
       return (
    
         <div>
@@ -28,7 +29,7 @@ class Nav extends Component {
                 style={{ lineHeight: '75px',width:'100%',display:'flex',justifyContent:'center'}}
             >
                  <Menu.Item key="1" >
-                            <Link exact to='/'>
+                            <Link to='/'>
                                 <span className="nav-text" style={{color:'#fff', paddingLeft:'2%', fontSize:'1.4em'}}>Would You Rather</span>
                             </Link>
                     
@@ -44,29 +45,29 @@ class Nav extends Component {
                 </Menu.Item>
 
                 <Menu.Item key="3" >
-                <Link exact to= '/add'>
-                    <Icon type="plus-circle" />
-                    <span className="nav-text">New Question</span>
-                </Link>
+                            <Link to= '/add'>
+                                <Icon type="plus-circle" />
+                                <span className="nav-text">New Question</span>
+                            </Link>
                 </Menu.Item>
 
                 <Menu.Item key="4">
-                    <Link exact to= '/leaderboard'>
-                    <Icon type="crown" />
-                    <span className="nav-text">Leaderboard</span>  
-                    </Link>
+                            <Link to= '/leaderboard'>
+                                <Icon type="crown" />
+                                <span className="nav-text">Leaderboard</span>  
+                            </Link>
                 </Menu.Item>
                  
-                {(this.props.authed)?
-                        <Menu.Item key="5" >
-                            <span className="nav-text">Hello，{this.props.authed}</span>  
-                            <Avatar size={20}  src={users[authed].avatarURL} style={{margin:'10px'}}/>  
-                        </Menu.Item>
-                        : null
-                }
+                 {(this.props.authed)?  
+                    <Menu.Item key="5" >
+                      <span className="nav-text">Hello，{this.props.authed}</span>  
+                      <Avatar size={20}  src={users[authed].avatarURL} style={{margin:'10px'}}/>  
+                    </Menu.Item>: null }
+                          
+                
                   {(this.props.authed)?
                     <Menu.Item key="6" >
-                        <Link exact to='/' onClick={this.handelLogout.bind(this)}> <Icon type="logout" />
+                        <Link to='/' onClick={this.handelLogout.bind(this)}> <Icon type="logout" />
                         <span className="nav-text">Logout</span>
                         </Link>     
                     </Menu.Item>:null}
