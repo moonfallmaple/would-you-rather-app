@@ -17,19 +17,33 @@ HomePage
 
 
 ## Steps to Install
-In order to run the application you can:
+In order to run the application you need:
+- Node/npm [[download]](https://nodejs.org/en/)
 
-### 
-### Clone or fork this project:
+### Installing
 
-$ git clone https://github.com/moonfallmaple/would-you-rather-app.git
+Clone the repo
 
+```
+git clone git@github.com:bigbhowell/would-you-rather.git
+```
 
-### npm start
+Change into the *would-you-rather* project directory
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+cd would-you-rather
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Install project dependencies
 
+```
+npm install
+```
+
+And start the application
+
+```
+npm start
+```
+
+The app will automatically launch in your browser.
