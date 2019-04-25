@@ -4,7 +4,7 @@ Would you rather is a ReactJS app that allows a user to login, ask and answer di
 
 The primary purpose for developing Would You Rather was to gain exposure to React Router & Redux, thus core functionality such as user authentication and the project backend is mocked.
 
-[Would You Rather Demo](https://moonfallmaple.github.io/would-you-rather/)
+[Would You Rather Demo](https://moonfallmaple.github.io/would-you-rather-demo/)
 
 
 <div  align="center">
