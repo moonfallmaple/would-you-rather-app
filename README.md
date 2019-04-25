@@ -47,3 +47,23 @@ npm start
 ```
 
 The app will automatically launch in your browser.
+
+
+
+<div  align="center">
+<img src="./pic.png" width = "900" height = "350" alt="图片名称" align=center /></b>
+</div>
+
+src-component
+- App.js
+- Home.js
+- Leaderboard.js
+- Login.js
+- Nav.js
+- NewQuestion.js
+- NotFound.js
+- UnanswerQuestionLists.js
+- AnswerQuestionLists.js
+- QuestionContainer.js
+- SubmitAnswer.js
+- CheckResult.js
