@@ -51,7 +51,7 @@ The app will automatically launch in your browser.
 
 
 <div  align="center">
-<img src="./pic.png" width = "900" height = "350" alt="图片名称" align=center /></b>
+<img src="./pic.png" width = "1000" height = "800" alt="图片名称" align=center /></b>
 </div>
 
 src-component
