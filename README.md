@@ -25,7 +25,7 @@ In order to run the application you need:
 Clone the repo
 
 ```
-git clone git@github.com:bigbhowell/would-you-rather.git
+git clone https://github.com/moonfallmaple/would-you-rather-src.git
 ```
 
 Change into the *would-you-rather* project directory
